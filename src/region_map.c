@@ -922,8 +922,9 @@ static const u8 *const sMapNames[] = {
     [MAPSEC_SCUFIB_CHAMBER      - MAPSECS_KANTO] = gMapSecName_ScufibChamber,
     [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = gMapSecName_RixyChamber,
     [MAPSEC_VIAPOIS_CHAMBER     - MAPSECS_KANTO] = gMapSecName_ViapoisChamber,
+    [MAPSEC_OAK_LAB             - MAPSECS_KANTO] = gMapSecName_OakLab,
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = gMapSecName_EmberSpa,
-    [MAPSEC_SPECIAL_AREA        - MAPSECS_KANTO] = gMapSecName_CeladonDept
+    [MAPSEC_SPECIAL_AREA        - MAPSECS_KANTO] = gMapSecName_CeladonDept,
 };
 
 static const u16 sMapSectionTopLeftCorners[MAPSEC_COUNT][2] = {
@@ -1108,7 +1109,8 @@ static const u16 sMapSectionDimensions[MAPSEC_COUNT][2] = {
     [MAPSEC_SCUFIB_CHAMBER      - MAPSECS_KANTO] = {1, 1},
     [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = {1, 1},
     [MAPSEC_VIAPOIS_CHAMBER     - MAPSECS_KANTO] = {1, 1},
-    [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {1, 1}
+    [MAPSEC_OAK_LAB             - MAPSECS_KANTO] = {1, 1},
+    [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {1, 1},
 };
 
 static const u8 sRegionMapSections_Kanto[LAYER_COUNT][MAP_HEIGHT][MAP_WIDTH] = {
@@ -1375,6 +1377,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_SCUFIB_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_VIAPOIS_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_OAK_LAB             - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
 };
 

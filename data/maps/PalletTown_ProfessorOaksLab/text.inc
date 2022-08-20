@@ -183,8 +183,13 @@ PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese::
     .string "So, here are some tools for\n"
     .string "catching wild POKéMON.$"
 
-PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls::
-    .string "{PLAYER} received five POKé BALLS.$"
+PalletTown_ProfessorOaksLab_Text_ReceivedPokeBalls::
+    .string "{PLAYER} received POKé BALLS.$"
+
+PalletTown_ProfessorOaksLab_Text_ReceivedResources::
+    .string "{PLAYER} received RARE CANDIES.\p"
+    .string "{PLAYER} received varous BERRIES.\p"
+    .string "{PLAYER} received the OLD ROD.$"
 
 PalletTown_ProfessorOaksLab_Text_OakExplainCatching::
     .string "When a wild POKéMON appears,\n"
@@ -194,6 +199,9 @@ PalletTown_ProfessorOaksLab_Text_OakExplainCatching::
     .string "This won't always work, however.\p"
     .string "A healthy POKéMON can escape.\n"
     .string "You have to be lucky!$"
+
+PalletTown_ProfessorOaksLab_Text_OakGivesResources::
+    .string "Here, also take these.$"
 
 PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream::
     .string "To make a complete guide on all\n"

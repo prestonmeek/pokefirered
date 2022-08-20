@@ -105,5 +105,6 @@ const u8 gMapSecName_DilfordChamber[] = _("DILFORD CHAMBER");
 const u8 gMapSecName_ScufibChamber[] = _("SCUFIB CHAMBER");
 const u8 gMapSecName_RixyChamber[] = _("RIXY CHAMBER");
 const u8 gMapSecName_ViapoisChamber[] = _("VIAPOIS CHAMBER");
+const u8 gMapSecName_OakLab[] = _("OAK'S LAB");
 const u8 gMapSecName_EmberSpa[] = _("EMBER SPA");
 const u8 gMapSecName_CeladonDept[] = _("CELADON DEPT.");

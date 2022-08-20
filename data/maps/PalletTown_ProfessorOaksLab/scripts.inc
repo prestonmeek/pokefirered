@@ -663,10 +663,39 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	call EventScript_RestorePrevTextColor
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
+	special EnableNationalPokedex
 	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese
-	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_POKE_BALL, 5
-	msgbox PalletTown_ProfessorOaksLab_Text_OakExplainCatching
+	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedPokeBalls, ITEM_POKE_BALL, 200
+
+	msgbox PalletTown_ProfessorOaksLab_Text_OakGivesResources
+	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedResources, ITEM_RARE_CANDY, 200
+	additem ITEM_RARE_CANDY 200
+	additem ITEM_RARE_CANDY 200
+	additem ITEM_RARE_CANDY 200
+	additem ITEM_RARE_CANDY 200
+	additem ITEM_RARE_CANDY 199
+
+	additem ITEM_ORAN_BERRY 200
+	additem ITEM_ORAN_BERRY 200
+	additem ITEM_ORAN_BERRY 200
+	additem ITEM_ORAN_BERRY 200
+	additem ITEM_ORAN_BERRY 199
+
+	additem ITEM_CHERI_BERRY 200
+	additem ITEM_CHERI_BERRY 200
+	additem ITEM_CHERI_BERRY 200
+	additem ITEM_CHERI_BERRY 200
+	additem ITEM_CHERI_BERRY 199
+
+	additem ITEM_PECHA_BERRY 200
+	additem ITEM_PECHA_BERRY 200
+	additem ITEM_PECHA_BERRY 200
+	additem ITEM_PECHA_BERRY 200
+	additem ITEM_PECHA_BERRY 199
+
+	additem ITEM_OLD_ROD 1
+
 	famechecker FAMECHECKER_OAK, 1
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalLeaveItToMeGramps
@@ -940,7 +969,7 @@ PalletTown_ProfessorOaksLab_EventScript_PlayerOutOfBalls::
 
 PalletTown_ProfessorOaksLab_EventScript_GivePlayerMoreBalls::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakAddedNothingToPokedex
-	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_POKE_BALL, 5
+	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedPokeBalls, ITEM_POKE_BALL, 200
 	setflag FLAG_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL
 	release
 	end
