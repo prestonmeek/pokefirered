@@ -1,24 +1,23 @@
+.equ LOCALID_NURSE_JOY, 1
+
 EventScript_PkmnCenterNurse::
 	goto_if_questlog EventScript_ReleaseEnd
 	call EventScript_PkmnCenterNurse_HealPkmn
-	call EventScript_PkmnCenterNurse_Goodbye
 	end
 
 EventScript_PkmnCenterNurse_HealPkmn::
 	incrementgamestat GAME_STAT_USED_POKECENTER
-	message Text_TakeYourPkmnForFewSeconds
-	waitmessage
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
+	call EventScript_PkmnCenterNurse_ReturnPkmn
 	special SetUsedPkmnCenterQuestLogEvent
-	goto EventScript_PkmnCenterNurse_CheckTrainerTowerAndUnionRoom
 	end
 
 EventScript_PkmnCenterNurse_TakeAndHealPkmn::
-	applymovement VAR_LAST_TALKED, Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_NURSE_JOY, Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	dofieldeffect FLDEFF_POKECENTER_HEAL
 	waitfieldeffect FLDEFF_POKECENTER_HEAL
-	applymovement VAR_LAST_TALKED, Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_NURSE_JOY, Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	special HealPlayerParty
 	return
@@ -33,7 +32,7 @@ EventScript_PkmnCenterNurse_CheckTrainerTowerAndUnionRoom::
 	end
 
 EventScript_PkmnCenterNurse_ReturnPkmn::
-	applymovement VAR_LAST_TALKED, Movement_Bow
+	applymovement LOCALID_NURSE_JOY, Movement_Bow
 	waitmovement 0
 	return
 

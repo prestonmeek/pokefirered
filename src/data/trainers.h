@@ -1215,16 +1215,16 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_YoungsterBen2}
     },
     [TRAINER_BUG_CATCHER_RICK] = {
-        .partyFlags = 0,
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM,
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_BUG_CATCHER,
         .trainerName = _("RICK"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = NELEMS(sParty_BugCatcherRick),
-        .party = {.NoItemDefaultMoves = sParty_BugCatcherRick}
+        .party = {.ItemCustomMoves = sParty_BugCatcherRick}
     },
     [TRAINER_BUG_CATCHER_DOUG] = {
         .partyFlags = 0,

@@ -1292,6 +1292,7 @@ const u8 gUnknown_83FE94D[] = _("a PSYCHIC move");
 const u8 gUnknown_83FE95C[] = _("an ICE move");
 const u8 gUnknown_83FE968[] = _("a DRAGON move");
 const u8 gUnknown_83FE976[] = _("a DARK move");
+const u8 gFairymovetype[] = _("a FAIRY move");
 const u8 gText_TimeBoard[] = _("TIME BOARD");
 const u8 gText_ClearTime[] = _("CLEAR TIME"); // Unused
 const u8 gText_XMinYZSec[] = _("{STR_VAR_1}MIN. {STR_VAR_2}.{STR_VAR_3}SEC.");
@@ -1333,7 +1334,8 @@ static const u8 *const sATypeMove_Table[] = {
     gUnknown_83FE94D,
     gUnknown_83FE95C,
     gUnknown_83FE968,
-    gUnknown_83FE976
+    gUnknown_83FE976,
+    gFairymovetype
 };
 
 static const u16 sGrammarMoveUsedTable[] = {

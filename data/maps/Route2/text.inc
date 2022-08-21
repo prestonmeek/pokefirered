@@ -5,3 +5,6 @@ Route2_Text_RouteSign::
 Route2_Text_DiglettsCave::
     .string "DIGLETT'S CAVE$"
 
+Route2_Text_FightRival::
+    .string "Don't you have a rival to fight?$"
+
