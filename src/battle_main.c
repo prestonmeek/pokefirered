@@ -2866,9 +2866,15 @@ static void TryDoEventsBeforeFirstTurn(void)
 {
     s32 i, j;
     u8 effect = 0;
+    
+    u8 target     = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+    u8 targetSide = GetBattlerSide(target) ^ BIT_SIDE;
 
     if (gBattleControllerExecFlags)
         return;
+
+    gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
+    gSideTimers[targetSide].spikesAmount++;
 
     if (gBattleStruct->switchInAbilitiesCounter == 0)
     {
