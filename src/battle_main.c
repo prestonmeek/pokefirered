@@ -34,6 +34,7 @@
 #include "trig.h"
 #include "vs_seeker.h"
 #include "util.h"
+#include "spikes.h"
 #include "constants/abilities.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_setup.h"
@@ -220,6 +221,7 @@ EWRAM_DATA struct MonSpritesGfx *gMonSpritesGfxPtr = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
+EWRAM_DATA u32 gSpikesStatus = 0;
 
 void (*gPreBattleCallback1)(void);
 void (*gBattleMainFunc)(void);
@@ -2246,6 +2248,9 @@ static void BattleStartClearSetData(void)
         gBattleResources->flags->flags[i] = 0;
     }
 
+    gSpikesStatus = 0;
+    gSpikesStatus |= STATUS3_INTIMIDATE_POKES;
+
     for (i = 0; i < 2; i++)
     {
         gSideStatuses[i] = 0;
@@ -2876,6 +2881,15 @@ static void TryDoEventsBeforeFirstTurn(void)
     gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
     gSideTimers[targetSide].spikesAmount++;
 
+    
+    if (gSpikesStatus & STATUS3_INTIMIDATE_POKES)
+    {
+        gBattleScripting.battler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+        gSpikesStatus &= ~STATUS3_INTIMIDATE_POKES;
+        BattleScriptPushCursorAndCallback(BattleScript_SpikesSetBeforeBattle);
+        effect++;
+    }
+
     if (gBattleStruct->switchInAbilitiesCounter == 0)
     {
         for (i = 0; i < gBattlersCount; i++)
@@ -2921,6 +2935,7 @@ static void TryDoEventsBeforeFirstTurn(void)
         gChosenActionByBattler[i] = B_ACTION_NONE;
         gChosenMoveByBattler[i] = MOVE_NONE;
     }
+
     TurnValuesCleanUp(FALSE);
     SpecialStatusesClear();
     *(&gBattleStruct->absentBattlerFlags) = gAbsentBattlerFlags;

@@ -13,6 +13,7 @@
 #include "constants/game_stat.h"
 #include "battle_string_ids.h"
 	.include "asm/macros/battle_script.inc"
+	.include "asm/macros/spikes.inc"
 @ Define these here since misc_constants.inc conflicts with the C headers
 	.set NULL, 0
 	.set FALSE, 0
@@ -3921,6 +3922,14 @@ BattleScript_DrizzleActivates::
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_RAIN_CONTINUES
 	call BattleScript_WeatherFormChanges
+	end3
+
+BattleScript_SpikesSetBeforeBattle::
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_OPPONENT1, B_ANIM_HELD_ITEM_EFFECT
+	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
+	printstring STRINGID_SPIKESSCATTERED
+	waitstate
 	end3
 
 BattleScript_SpeedBoostActivates::
