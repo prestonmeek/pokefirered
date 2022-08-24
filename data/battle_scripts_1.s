@@ -3926,10 +3926,10 @@ BattleScript_DrizzleActivates::
 
 BattleScript_SpikesSetBeforeBattle::
 	pause B_WAIT_TIME_SHORT
-	playanimation BS_OPPONENT1, B_ANIM_HELD_ITEM_EFFECT
-	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
+	attackanimation
+	waitanimation
 	printstring STRINGID_SPIKESSCATTERED
-	waitstate
+	waitmessage B_WAIT_TIME_LONG
 	end3
 
 BattleScript_SpeedBoostActivates::

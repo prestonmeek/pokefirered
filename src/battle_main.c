@@ -2877,15 +2877,18 @@ static void TryDoEventsBeforeFirstTurn(void)
 
     if (gBattleControllerExecFlags)
         return;
-
-    gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
-    gSideTimers[targetSide].spikesAmount++;
-
     
     if (gSpikesStatus & STATUS3_INTIMIDATE_POKES)
     {
+        // Sets the spikes
+        gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
+        gSideTimers[targetSide].spikesAmount++;
+
+        // Spikes animation stuff
         gBattleScripting.battler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
         gSpikesStatus &= ~STATUS3_INTIMIDATE_POKES;
+        gCurrentMove = MOVE_SPIKES;
+        gBattlerAttacker = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         BattleScriptPushCursorAndCallback(BattleScript_SpikesSetBeforeBattle);
         effect++;
     }
