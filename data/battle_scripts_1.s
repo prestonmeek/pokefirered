@@ -3923,7 +3923,7 @@ BattleScript_DrizzleActivates::
 	call BattleScript_WeatherFormChanges
 	end3
 
-BattleScript_SpikesSetBeforeBattle::
+BattleScript_PreSetup_Spikes::
 	pause B_WAIT_TIME_SHORT
 	attackanimation
 	waitanimation

@@ -8,7 +8,7 @@ void pre_spikes(u8 amount, u8 player, u8 playerSide, u8 enemy, u8 enemySide) {
 
     // Spikes animation
     gCurrentMove = MOVE_SPIKES;
-    BattleScriptPushCursorAndCallback(BattleScript_SpikesSetBeforeBattle);
+    BattleScriptPushCursorAndCallback(BattleScript_PreSetup_Spikes);
 }
 
 void func_pre_spikes_1(u8 player, u8 playerSide, u8 enemy, u8 enemySide) 
