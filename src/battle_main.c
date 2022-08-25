@@ -2889,6 +2889,7 @@ static void TryDoEventsBeforeFirstTurn(void)
         if ((gTrainers[gTrainerBattleOpponent_A].preSetupFlags & (1 << i)) != 0 && gPreSetupWasCalled[i] == FALSE)
         {
             gPreSetupWasCalled[i] = TRUE;
+            gBattlerAttacker = enemy;
             gPreSetupFuncs[i](player, playerSide, enemy, enemySide);
             effect++;
         }
