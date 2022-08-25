@@ -34,7 +34,7 @@
 #include "trig.h"
 #include "vs_seeker.h"
 #include "util.h"
-#include "spikes.h"
+#include "pre_setup.h"
 #include "constants/abilities.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_setup.h"
@@ -221,7 +221,7 @@ EWRAM_DATA struct MonSpritesGfx *gMonSpritesGfxPtr = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
-EWRAM_DATA u32 gSpikesStatus = 0;
+EWRAM_DATA bool8 gPreSetupWasCalled[PRE_SETUP_TOTAL] = {FALSE};
 
 void (*gPreBattleCallback1)(void);
 void (*gBattleMainFunc)(void);
@@ -2228,6 +2228,11 @@ static void BattleStartClearSetData(void)
     TurnValuesCleanUp(FALSE);
     SpecialStatusesClear();
 
+    for (i = 0; i < PRE_SETUP_TOTAL; i++)
+    {
+        gPreSetupWasCalled[i] = FALSE;
+    }
+
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
         gStatuses3[i] = 0;
@@ -2247,9 +2252,6 @@ static void BattleStartClearSetData(void)
         gLastPrintedMoves[i] = MOVE_NONE;
         gBattleResources->flags->flags[i] = 0;
     }
-
-    gSpikesStatus = 0;
-    gSpikesStatus |= STATUS3_INTIMIDATE_POKES;
 
     for (i = 0; i < 2; i++)
     {
@@ -2871,26 +2873,26 @@ static void TryDoEventsBeforeFirstTurn(void)
 {
     s32 i, j;
     u8 effect = 0;
-    
-    u8 target     = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-    u8 targetSide = GetBattlerSide(target) ^ BIT_SIDE;
+
+    u8 player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    u8 playerSide = GetBattlerSide(player) ^ BIT_SIDE;
+
+    u8 enemy = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+    u8 enemySide = GetBattlerSide(enemy) ^ BIT_SIDE;
 
     if (gBattleControllerExecFlags)
         return;
     
-    if (gSpikesStatus & STATUS3_INTIMIDATE_POKES)
-    {
-        // Sets the spikes
-        gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
-        gSideTimers[targetSide].spikesAmount++;
 
-        // Spikes animation stuff
-        gBattleScripting.battler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-        gSpikesStatus &= ~STATUS3_INTIMIDATE_POKES;
-        gCurrentMove = MOVE_SPIKES;
-        gBattlerAttacker = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-        BattleScriptPushCursorAndCallback(BattleScript_SpikesSetBeforeBattle);
-        effect++;
+    for (i = 0; i < PRE_SETUP_TOTAL; i++)
+    {
+        if (gPreSetupWasCalled[i] == FALSE)
+        {
+            gPreSetupWasCalled[i] = TRUE;
+            gBattlerAttacker = enemy;
+            gPreSetupFuncs[i](player, playerSide, enemy, enemySide);
+            effect++;
+        }
     }
 
     if (gBattleStruct->switchInAbilitiesCounter == 0)

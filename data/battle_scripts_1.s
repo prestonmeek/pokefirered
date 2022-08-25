@@ -13,7 +13,6 @@
 #include "constants/game_stat.h"
 #include "battle_string_ids.h"
 	.include "asm/macros/battle_script.inc"
-	.include "asm/macros/spikes.inc"
 @ Define these here since misc_constants.inc conflicts with the C headers
 	.set NULL, 0
 	.set FALSE, 0
