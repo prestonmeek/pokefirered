@@ -2,8 +2,9 @@
 
 void pre_spikes(u8 amount, u8 player, u8 playerSide, u8 enemy, u8 enemySide) {
     // Sets the spikes
+    // I don't really get how this works, but the player has the SPIKES flag and the enemy has the SPIKES count (??)
     gSideStatuses[player] |= SIDE_STATUS_SPIKES;
-    // gSideTimers[playerSide].spikesAmount = amount;
+    gSideTimers[enemySide].spikesAmount = amount;
 
     // Spikes animation
     gCurrentMove = MOVE_SPIKES;

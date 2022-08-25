@@ -1237,7 +1237,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .partySize = NELEMS(sParty_BugCatcherDoug),
         .party = {.NoItemDefaultMoves = sParty_BugCatcherDoug},
-        .preSetupFlags = PRE_SPIKES_3
+        .preSetupFlags = PRE_SPIKES_2
     },
     [TRAINER_BUG_CATCHER_SAMMY] = {
         .partyFlags = 0,
@@ -6373,7 +6373,8 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .partySize = NELEMS(sParty_BugCatcherAnthony),
-        .party = {.NoItemDefaultMoves = sParty_BugCatcherAnthony}
+        .party = {.NoItemDefaultMoves = sParty_BugCatcherAnthony},
+        .preSetupFlags = PRE_SPIKES_2
     },
     [TRAINER_BUG_CATCHER_CHARLIE] = {
         .partyFlags = 0,
