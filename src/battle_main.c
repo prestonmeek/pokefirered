@@ -2885,8 +2885,8 @@ static void TryDoEventsBeforeFirstTurn(void)
 
     for (i = 0; i < PRE_SETUP_TOTAL; i++)
     {
-        // (i + 0x01) is used since the first flag is 0x01 and i starts at 0
-        if ((gTrainers[gTrainerBattleOpponent_A].preSetupFlags & (i + 0x01)) != 0 && gPreSetupWasCalled[i] == FALSE)
+        // (1 << i) checks for the flag
+        if ((gTrainers[gTrainerBattleOpponent_A].preSetupFlags & (1 << i)) != 0 && gPreSetupWasCalled[i] == FALSE)
         {
             gPreSetupWasCalled[i] = TRUE;
             gBattlerAttacker = enemy;
