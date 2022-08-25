@@ -13,5 +13,5 @@ void func_pre_spikes_1(u8 player, u8 playerSide, u8 enemy, u8 enemySide)
 
 void (* const gPreSetupFuncs[PRE_SETUP_TOTAL])(u8 player, u8 playerSide, u8 enemy, u8 enemySide) = 
 {
-    func_pre_spikes_1
+    func_pre_spikes_1                   // 0x01
 };

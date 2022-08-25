@@ -7,7 +7,7 @@
 #include "battle_anim.h"
 #include "constants/moves.h"
 
-#define PRE_SPIKES_1 0
+#define PRE_SPIKES_1 0x01
 #define PRE_SETUP_TOTAL 1
 
 void func_pre_spikes_1(u8 player, u8 playerSide, u8 enemy, u8 enemySide);

@@ -125,6 +125,7 @@ struct Trainer
     /*0x1C*/ u32 aiFlags;
     /*0x20*/ u8 partySize;
     /*0x24*/ const union TrainerMonPtr party;
+    /*0x25*/ u8 preSetupFlags;
 };
 
 extern const struct Trainer gTrainers[];
