@@ -230,6 +230,7 @@ extern const u8 BattleScript_OldMan_Pokedude_CaughtMessage[];
 extern const u8 BattleScript_SilphScopeUnveiled[];
 extern const u8 BattleScript_BattleTowerTrainerBattleWon[];
 extern const u8 BattleScript_PreSetup_Spikes[];
+extern const u8 BattleScript_PreSetup_Reflect[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForBallThrow[];

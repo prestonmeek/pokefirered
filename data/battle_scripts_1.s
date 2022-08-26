@@ -3931,6 +3931,14 @@ BattleScript_PreSetup_Spikes::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_PreSetup_Reflect::
+	pause B_WAIT_TIME_SHORT
+	attackanimation
+	waitanimation
+	printfromtable gReflectLightScreenSafeguardStringIds
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
 BattleScript_SpeedBoostActivates::
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printstring STRINGID_PKMNRAISEDSPEED

@@ -2873,12 +2873,7 @@ static void TryDoEventsBeforeFirstTurn(void)
 {
     s32 i, j;
     u8 effect = 0;
-
-    u8 player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-    u8 playerSide = GetBattlerSide(player) ^ BIT_SIDE;
-
     u8 enemy = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-    u8 enemySide = GetBattlerSide(enemy) ^ BIT_SIDE;
 
     if (gBattleControllerExecFlags)
         return;
@@ -2890,7 +2885,7 @@ static void TryDoEventsBeforeFirstTurn(void)
         {
             gPreSetupWasCalled[i] = TRUE;
             gBattlerAttacker = enemy;
-            gPreSetupFuncs[i](player, playerSide, enemy, enemySide);
+            gPreSetupFuncs[i](enemy);
             effect++;
         }
     }
