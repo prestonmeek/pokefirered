@@ -13,7 +13,8 @@
 #define PRE_SPIKES_2    (1 << 1)
 #define PRE_SPIKES_3    (1 << 2)
 #define PRE_REFLECT     (1 << 3)
-#define PRE_SETUP_TOTAL 4
+#define PRE_TRICK_ROOM  (1 << 4)
+#define PRE_SETUP_TOTAL 5
 
 // Util functions
 void pre_spikes(u8 amount, u8 enemy);
@@ -23,6 +24,7 @@ void func_pre_spikes_1(u8 enemy);
 void func_pre_spikes_2(u8 enemy);
 void func_pre_spikes_3(u8 enemy);
 void func_pre_reflect(u8 enemy);
+void func_pre_trick_room(u8 enemy);
 
 // Table that checks if a flag has been called or not already
 // We can't just unset the flag because they are read-only

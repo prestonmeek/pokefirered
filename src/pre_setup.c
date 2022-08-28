@@ -46,10 +46,23 @@ void func_pre_reflect(u8 enemy)
     BattleScriptPushCursorAndCallback(BattleScript_PreSetup_Reflect);
 }
 
+void func_pre_trick_room(u8 enemy)
+{
+    // It doesn't matter which side we set it on since it affects both sides
+    // I could add it as a weather, but I don't want that to possibly break any weather checks
+    // Sets trick room
+    gSideStatuses[0] |= SIDE_STATUS_TRICK_ROOM;
+
+    // Trick room animation
+    gCurrentMove = MOVE_PSYCHIC;
+    BattleScriptPushCursorAndCallback(BattleScript_PreSetup_TrickRoom);
+}
+
 void (* const gPreSetupFuncs[PRE_SETUP_TOTAL])(u8 enemy) = 
 {
     func_pre_spikes_1,                   // (1 << 0)
     func_pre_spikes_2,                   // (1 << 1)
     func_pre_spikes_3,                   // (1 << 2)
     func_pre_reflect,                    // (1 << 3)
+    func_pre_trick_room,                 // (1 << 4)
 };

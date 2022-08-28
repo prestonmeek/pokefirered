@@ -3939,6 +3939,14 @@ BattleScript_PreSetup_Reflect::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_PreSetup_TrickRoom::
+	pause B_WAIT_TIME_SHORT
+	attackanimation
+	waitanimation
+	printstring STRINGID_TRICKROOM
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
 BattleScript_SpeedBoostActivates::
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printstring STRINGID_PKMNRAISEDSPEED

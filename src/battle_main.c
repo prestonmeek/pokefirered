@@ -3556,6 +3556,13 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
             strikesFirst = 1; // battler2 has more speed
         // else battler1 has more speed
     }
+    // If the priorities of moves were the same, then swap the results if trick room is active
+    if (gBattleMoves[moveBattler1].priority == gBattleMoves[moveBattler2].priority 
+        && ((gSideStatuses[0] & SIDE_STATUS_TRICK_ROOM) || (gSideStatuses[1] & SIDE_STATUS_TRICK_ROOM)))
+    {
+        // Switches strikesFirst from 1 to 0 and vice versa
+        strikesFirst = strikesFirst == 1 ? 0 : 1;
+    }
     return strikesFirst;
 }
 
