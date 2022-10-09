@@ -1,9 +1,9 @@
 def createField(key: str, value: str, format: bool = True) -> str:
     if format: 
-        value = value.replace('[', '').replace(']', '')     # remove any brackets (namely in hidden power)
-        value = value.replace('.', '')                      # remove any periods (namely in MR. MIME)
-        value = value.replace(' (M)', '').replace(' (F)', '') # removes any male/female indicators
-        value = value.replace(' ', '_').upper()             # replace spaces with underscores; capitalize
+        value = value.replace('[', '').replace(']', '')         # remove any brackets (namely in hidden power)
+        value = value.replace('.', '')                          # remove any periods (namely in MR. MIME)
+        value = value.replace(' (M)', '').replace(' (F)', '')   # removes any male/female indicators
+        value = value.replace(' ', '_').upper()                 # replace spaces with underscores; capitalize
 
     return "\t.{key} = {value},\n".format(key=key, value=value)
 
