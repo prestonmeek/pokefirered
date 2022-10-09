@@ -140,6 +140,17 @@ const u8 gWeatherAshTiles[] = INCBIN_U8("graphics/weather/ash.4bpp");
 const u8 gWeatherRainTiles[] = INCBIN_U8("graphics/weather/rain.4bpp");
 const u8 gWeatherSandstormTiles[] = INCBIN_U8("graphics/weather/sandstorm.4bpp");
 
+// The drought weather effect uses a precalculated color lookup table. Presumably this
+// is because the underlying color shift calculation is slow.
+static const u16 sDroughtWeatherColors[][0x1000] = {
+    INCBIN_U16("graphics/weather/drought/colors_0.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_1.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_2.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_3.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_4.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_5.bin"),
+};
+
 // code
 void StartWeather(void)
 {
@@ -488,33 +499,30 @@ static void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex)
     else if (gammaIndex < 0)
     {
         // A negative gammIndex value means that the blending will come from the special Drought weather's palette tables.
-        // Dummied out in FRLG
+        gammaIndex = -gammaIndex - 1;
+        palOffset = startPalIndex * 16;
+        numPalettes += startPalIndex;
+        curPalIndex = startPalIndex;
 
-        // gammaIndex = -gammaIndex - 1;
-        // palOffset = startPalIndex * 16;
-        // numPalettes += startPalIndex;
-        // curPalIndex = startPalIndex;
-        //
-        // CpuFastCopy(gPlttBufferUnfaded + palOffset, gPlttBufferFaded + palOffset, 16 * sizeof(u16));
-        // while (curPalIndex < numPalettes)
-        // {
-        //     if (sPaletteGammaTypes[curPalIndex] == GAMMA_NONE)
-        //     {
-        //         // No palette change.
-        //         palOffset += 16;
-        //     }
-        //     else
-        //     {
-        //
-        //         for (i = 0; i < 16; i++)
-        //         {
-        //             gPlttBufferFaded[palOffset] = sDroughtWeatherColors[gammaIndex][DROUGHT_COLOR_INDEX(gPlttBufferUnfaded[palOffset])];
-        //             palOffset++;
-        //         }
-        //     }
-        //
-        //     curPalIndex++;
-        // }
+        while (curPalIndex < numPalettes)
+        {
+            if (sPaletteGammaTypes[curPalIndex] == GAMMA_NONE)
+            {
+                // No palette change.
+                CpuFastCopy(gPlttBufferUnfaded + palOffset, gPlttBufferFaded + palOffset, 16 * sizeof(u16));
+                palOffset += 16;
+            }
+            else
+            {
+                for (i = 0; i < 16; i++)
+                {
+                    gPlttBufferFaded[palOffset] = sDroughtWeatherColors[gammaIndex][DROUGHT_COLOR_INDEX(gPlttBufferUnfaded[palOffset])];
+                    palOffset++;
+                }
+            }
+
+            curPalIndex++;
+        }
     }
     else
     {
@@ -613,11 +621,17 @@ static void ApplyDroughtGammaShiftWithBlend(s8 gammaIndex, u8 blendCoeff, u16 bl
                 g1 = color1.g;
                 b1 = color1.b;
 
-                r1 += ((rBlend - r1) * blendCoeff) >> 4;
-                g1 += ((gBlend - g1) * blendCoeff) >> 4;
-                b1 += ((bBlend - b1) * blendCoeff) >> 4;
+                offset = ((b1 & 0x1E) << 7) | ((g1 & 0x1E) << 3) | ((r1 & 0x1E) >> 1);
+                color2 = *(struct RGBColor *)&sDroughtWeatherColors[gammaIndex][offset];
+                r2 = color2.r;
+                g2 = color2.g;
+                b2 = color2.b;
 
-                gPlttBufferFaded[palOffset++] = (b1 << 10) | (g1 << 5) | r1;
+                r2 += ((rBlend - r2) * blendCoeff) >> 4;
+                g2 += ((gBlend - g2) * blendCoeff) >> 4;
+                b2 += ((bBlend - b2) * blendCoeff) >> 4;
+
+                gPlttBufferFaded[palOffset++] = RGB2(r2, g2, b2);
             }
         }
     }
@@ -915,9 +929,8 @@ void LoadCustomWeatherSpritePalette(const u16 *palette)
 
 static void LoadDroughtWeatherPalette(u8 *gammaIndexPtr, u8 *a1)
 {
-    // Dummied out in FRLG
-    // *gammaIndexPtr = 0x20;
-    // *a1 = 0x20;
+    *gammaIndexPtr = 0x20;
+    *a1 = 0x20;
 }
 
 void ResetDroughtWeatherPaletteLoading(void)
