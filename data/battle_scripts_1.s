@@ -2180,7 +2180,7 @@ BattleScript_EffectWillOWisp::
 	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
 	attackanimation
 	waitanimation
-	setmoveeffect MOVE_EFFECT_BURN
+	setmoveeffect MOVE_EFFECT_FREEZE
 	seteffectprimary
 	goto BattleScript_MoveEnd
 

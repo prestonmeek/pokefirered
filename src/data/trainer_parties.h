@@ -297,10 +297,10 @@ static const struct TrainerMonItemCustomMoves sParty_BugCatcherRick[] = {
 static const struct TrainerMonItemCustomMoves sParty_BugCatcherDoug[] = {
     {
         .iv = 255,
-        .species = SPECIES_DIGLETT,
+        .species = SPECIES_PORYGON,
         .heldItem = ITEM_ORAN_BERRY,
-        .lvl = 10,
-        .moves = {MOVE_DIG,MOVE_ROCK_THROW,MOVE_AERIAL_ACE},
+        .lvl = 7,
+        .moves = {MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
             .iv = 255,
