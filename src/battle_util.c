@@ -828,13 +828,21 @@ u8 DoBattlerEndTurnEffects(void)
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
-            case ENDTURN_BURN:  // burn
+            case ENDTURN_BURN:  // burn and freeze
                 if ((gBattleMons[gActiveBattler].status1 & STATUS1_BURN) && gBattleMons[gActiveBattler].hp != 0)
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_BurnTurnDmg);
+                    effect++;
+                }
+                if ((gBattleMons[gActiveBattler].status1 & STATUS1_FREEZE) && gBattleMons[gActiveBattler].hp != 0)
+                {
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    BattleScriptExecute(BattleScript_FreezeTurnDmg);
                     effect++;
                 }
                 gBattleStruct->turnEffectsTracker++;
