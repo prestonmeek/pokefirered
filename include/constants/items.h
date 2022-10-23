@@ -438,11 +438,15 @@
 #define ITEM_RUBY 373
 #define ITEM_SAPPHIRE 374
 
-#define ITEM_N_A 375
+// New items
+#define ITEM_FOCUS_SASH 375
+
+#define ITEM_N_A 376
 
 // Emerald
-#define ITEM_MAGMA_EMBLEM 375
-#define ITEM_OLD_SEA_MAP 376
+#define ITEM_MAGMA_EMBLEM 376
+#define ITEM_OLD_SEA_MAP 377
+
 
 #define FIRST_BERRY_INDEX ITEM_CHERI_BERRY
 #define LAST_BERRY_INDEX ITEM_ENIGMA_BERRY
@@ -453,6 +457,6 @@
 #define NUM_HIDDEN_MACHINES     8
 
 // Check if the item is one that can be used on a Pokemon.
-#define IS_POKEMON_ITEM(item) ((item) >= ITEM_POTION && (item) <= ITEM_0B2)
+#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= ITEM_0B2) || (item) >= ITEM_FOCUS_SASH)
 
 #endif  // GUARD_CONSTANTS_ITEMS_H

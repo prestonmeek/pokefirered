@@ -300,7 +300,7 @@ static const struct TrainerMonItemCustomMoves sParty_BugCatcherDoug[] = {
         .species = SPECIES_PORYGON,
         .heldItem = ITEM_ORAN_BERRY,
         .lvl = 7,
-        .moves = {MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_HYPER_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
             .iv = 255,
