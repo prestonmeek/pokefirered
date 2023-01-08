@@ -75,6 +75,19 @@
               10
             ]
           }
+        },
+        {
+          "type": "honey_mons",
+          "encounter_rates": [
+            25,
+            25,
+            10,
+            10,
+            10,
+            10,
+            5,
+            5
+          ]
         }
       ],
       "encounters": [
@@ -1109,6 +1122,51 @@
                 "min_level": 7,
                 "max_level": 7,
                 "species": "SPECIES_WEEDLE"
+              }
+            ]
+          },
+          "honey_mons": {
+            "encounter_rate": 14,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_AGGRON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_AGGRON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_AGGRON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_AGGRON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_AGGRON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_AGGRON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_AGGRON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_AGGRON"
               }
             ]
           }

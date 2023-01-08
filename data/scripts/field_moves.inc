@@ -74,6 +74,19 @@ EventScript_RockSmash::
 	goto EventScript_UseRockSmash
 	end
 
+EventScript_HoneyTree::
+    msgbox Text_Test_HoneyTree
+	closemessage
+	special HoneyWildEncounter
+	goto_if_eq VAR_RESULT, FALSE, EventScript_HoneyNoEncounter
+	waitstate
+	releaseall
+	end
+
+Text_Test_HoneyTree::
+	.string "I love honey trees...\n"
+	.string "They smell delicious.$"
+
 EventScript_FldEffRockSmash::
 	lockall
 	dofieldeffect FLDEFF_USE_ROCK_SMASH
@@ -94,6 +107,10 @@ EventScript_UseRockSmash::
 EventScript_RockSmashNoEncounter::
 	releaseall
 	end
+
+EventScript_HoneyNoEncounter::
+	releaseall
+	end	
 
 Movement_BreakRock::
 	rock_smash_break

@@ -109,6 +109,28 @@ static u8 ChooseWildMonIndex_WaterRock(void)
         return 4;
 }
 
+static u8 ChooseWildMonIndex_Honey(void)
+{
+    u8 rand = Random() % ENCOUNTER_CHANCE_HONEY_MONS_TOTAL;
+
+    if (rand < ENCOUNTER_CHANCE_HONEY_MONS_SLOT_0)
+        return 0;
+    else if (rand >= ENCOUNTER_CHANCE_HONEY_MONS_SLOT_0 && rand < ENCOUNTER_CHANCE_HONEY_MONS_SLOT_1)
+        return 1;
+    else if (rand >= ENCOUNTER_CHANCE_HONEY_MONS_SLOT_1 && rand < ENCOUNTER_CHANCE_HONEY_MONS_SLOT_2)
+        return 2;
+    else if (rand >= ENCOUNTER_CHANCE_HONEY_MONS_SLOT_2 && rand < ENCOUNTER_CHANCE_HONEY_MONS_SLOT_3)
+        return 3;
+    else if (rand >= ENCOUNTER_CHANCE_HONEY_MONS_SLOT_3 && rand < ENCOUNTER_CHANCE_HONEY_MONS_SLOT_4)
+        return 4;
+    else if (rand >= ENCOUNTER_CHANCE_HONEY_MONS_SLOT_4 && rand < ENCOUNTER_CHANCE_HONEY_MONS_SLOT_5)
+        return 5;
+    else if (rand >= ENCOUNTER_CHANCE_HONEY_MONS_SLOT_5 && rand < ENCOUNTER_CHANCE_HONEY_MONS_SLOT_6)
+        return 6;
+    else
+        return 7;
+}
+
 enum
 {
     OLD_ROD,
@@ -263,6 +285,7 @@ enum
     WILD_AREA_WATER,
     WILD_AREA_ROCKS,
     WILD_AREA_FISHING,
+    WILD_AREA_HONEY,
 };
 
 #define WILD_CHECK_REPEL    0x1
@@ -282,6 +305,9 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8
         break;
     case WILD_AREA_ROCKS:
         slot = ChooseWildMonIndex_WaterRock();
+        break;
+    case WILD_AREA_HONEY:
+        slot = ChooseWildMonIndex_Honey();
         break;
     }
     level = ChooseWildMonLevel(&info->wildPokemon[slot]);
@@ -462,6 +488,23 @@ void RockSmashWildEncounter(void)
     else
         gSpecialVar_Result = FALSE;
 }
+
+void HoneyWildEncounter(void)
+{
+    u16 headerIdx = GetCurrentMapWildMonHeaderId();
+    if (headerIdx == 0xFFFF)
+        gSpecialVar_Result = FALSE;
+    else if (gWildMonHeaders[headerIdx].honeyMonsInfo == NULL)
+        gSpecialVar_Result = FALSE;
+    else if (TryGenerateWildMon(gWildMonHeaders[headerIdx].honeyMonsInfo, WILD_AREA_HONEY, 0) == TRUE)
+    {
+        StartWildBattle();
+        gSpecialVar_Result = TRUE;
+    }
+    else
+        gSpecialVar_Result = FALSE;
+}
+
 
 bool8 SweetScentWildEncounter(void)
 {
