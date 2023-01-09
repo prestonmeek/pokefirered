@@ -75,7 +75,13 @@ EventScript_RockSmash::
 	end
 
 EventScript_HoneyTree::
-    msgbox Text_Test_HoneyTree
+    msgbox Text_HoneyTreeShake, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, EventScript_HoneyYesEncounter
+	releaseall
+	end
+
+EventScript_HoneyYesEncounter::
+	msgbox Text_HoneyTreeEncounter
 	closemessage
 	special HoneyWildEncounter
 	goto_if_eq VAR_RESULT, FALSE, EventScript_HoneyNoEncounter
@@ -83,9 +89,12 @@ EventScript_HoneyTree::
 	releaseall
 	end
 
-Text_Test_HoneyTree::
-	.string "I love honey trees...\n"
-	.string "They smell delicious.$"
+Text_HoneyTreeShake::
+	.string "The tree is covered in honey...\n"
+	.string "Shake the tree?$"
+
+Text_HoneyTreeEncounter::
+	.string "Look! A POKéMON!$"
 
 EventScript_FldEffRockSmash::
 	lockall
