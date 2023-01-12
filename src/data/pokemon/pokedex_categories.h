@@ -777,6 +777,7 @@ static const u16 sDexCategory_UrbanPkmn_Page11[] = {
 static const u16 sDexCategory_UrbanPkmn_Page12[] = {
     SPECIES_ESPEON,
     SPECIES_UMBREON,
+    SPECIES_SYLVEON
 };
 
 static const u16 sDexCategory_RarePkmn_Page1[] = {
