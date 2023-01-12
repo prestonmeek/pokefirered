@@ -198,6 +198,7 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_QUAGSIRE] = sQuagsireLevelUpLearnset,
     [SPECIES_ESPEON] = sEspeonLevelUpLearnset,
     [SPECIES_UMBREON] = sUmbreonLevelUpLearnset,
+    [SPECIES_SYLVEON] = sSylveonLevelUpLearnset,
     [SPECIES_MURKROW] = sMurkrowLevelUpLearnset,
     [SPECIES_SLOWKING] = sSlowkingLevelUpLearnset,
     [SPECIES_MISDREAVUS] = sMisdreavusLevelUpLearnset,

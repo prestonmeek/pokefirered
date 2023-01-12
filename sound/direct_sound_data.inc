@@ -1092,6 +1092,10 @@ Cry_Umbreon::
 	.incbin "sound/direct_sound_samples/cry_umbreon.bin"
 
 	.align 2
+Cry_Sylveon::
+	.incbin "sound/direct_sound_samples/cry_espeon.bin"
+
+	.align 2
 Cry_Murkrow::
 	.incbin "sound/direct_sound_samples/cry_murkrow.bin"
 

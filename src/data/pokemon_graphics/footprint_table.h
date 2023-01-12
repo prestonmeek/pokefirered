@@ -198,6 +198,7 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_QUAGSIRE] = gMonFootprint_Quagsire,
     [SPECIES_ESPEON] = gMonFootprint_Espeon,
     [SPECIES_UMBREON] = gMonFootprint_Umbreon,
+    [SPECIES_SYLVEON] = gMonFootprint_Sylveon,
     [SPECIES_MURKROW] = gMonFootprint_Murkrow,
     [SPECIES_SLOWKING] = gMonFootprint_Slowking,
     [SPECIES_MISDREAVUS] = gMonFootprint_Misdreavus,

@@ -5030,4 +5030,17 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 337,
         .trainerOffset = 2,
     },
+
+    [NATIONAL_DEX_SYLVEON] =
+    {
+        .categoryName = _("WISH"),
+        .height = 10,
+        .weight = 270,
+        .description = gSylveonPokedexText,
+        .unusedDescription = gSylveonPokedexTextUnused,
+        .pokemonScale = 317,
+        .pokemonOffset = 9,
+        .trainerScale = 256,
+        .trainerOffset = -2,
+    },
 };

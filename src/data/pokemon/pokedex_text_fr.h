@@ -1389,6 +1389,12 @@ const u8 gUmbreonPokedexText[] = _(
 
 const u8 gUmbreonPokedexTextUnused[] = _("");
 
+const u8 gSylveonPokedexText[] = _(
+    "It sends a soothing aura from its\n"
+    "ribbonlike feelers to calm fights.");
+
+const u8 gSylveonPokedexTextUnused[] = _("");
+
 const u8 gMurkrowPokedexText[] = _(
     "It is said that when chased, it lures its\n"
     "attacker onto dark mountain trails where\n"

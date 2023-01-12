@@ -1191,6 +1191,7 @@ gCryTable::
 	cry Cry_Quagsire
 	cry Cry_Espeon
 	cry Cry_Umbreon
+	cry Cry_Sylveon
 	cry Cry_Murkrow
 	cry Cry_Slowking
 	cry Cry_Misdreavus
@@ -1581,6 +1582,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Quagsire
 	cry_reverse Cry_Espeon
 	cry_reverse Cry_Umbreon
+	cry_reverse Cry_Sylveon
 	cry_reverse Cry_Murkrow
 	cry_reverse Cry_Slowking
 	cry_reverse Cry_Misdreavus
