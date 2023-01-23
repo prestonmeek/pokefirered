@@ -23,7 +23,13 @@ static const u16 sTutorLearnsets[] =
 {
     [SPECIES_NONE] = 0,
 
-    [SPECIES_BULBASAUR] = TUTOR(MOVE_SWORDS_DANCE)
+	[SPECIES_GLACEON] = TUTOR(MOVE_BODY_SLAM)
+                      | TUTOR(MOVE_DOUBLE_EDGE)
+                      | TUTOR(MOVE_MIMIC)
+                      | TUTOR(MOVE_DREAM_EATER)
+                      | TUTOR(MOVE_SUBSTITUTE),
+
+	[SPECIES_BULBASAUR] = TUTOR(MOVE_SWORDS_DANCE)
                         | TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_MIMIC)

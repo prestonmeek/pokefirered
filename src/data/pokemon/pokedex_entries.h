@@ -13,7 +13,20 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 0,
     },
 
-    [NATIONAL_DEX_BULBASAUR] =
+	[NATIONAL_DEX_GLACEON] =
+    {
+        .categoryName = _("BLIZZARD"),
+        .height = 10,
+        .weight = 270,
+        .description = gGlaceonPokedexText,
+        .unusedDescription = gGlaceonPokedexTextUnused,
+        .pokemonScale = 317,
+        .pokemonOffset = 9,
+        .trainerScale = 256,
+        .trainerOffset = -2,
+    },
+
+[NATIONAL_DEX_BULBASAUR] =
     {
         .categoryName = _("SEED"),
         .height = 7,

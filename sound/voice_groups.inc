@@ -994,6 +994,7 @@ voicegroup128::
 	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
 
 gCryTable::
+	cry Cry_Glaceon
 	cry Cry_Bulbasaur
 	cry Cry_Ivysaur
 	cry Cry_Venusaur
@@ -1385,6 +1386,7 @@ gCryTable::
 	cry Cry_Chimecho
 
 gCryTable_Reverse::
+	cry_reverse Cry_Glaceon
 	cry_reverse Cry_Bulbasaur
 	cry_reverse Cry_Ivysaur
 	cry_reverse Cry_Venusaur
