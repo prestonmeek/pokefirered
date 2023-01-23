@@ -301,11 +301,7 @@ DirectSoundWaveData_sc88pro_accordion::
 	.align 2
 DirectSoundWaveData_unused_sc55_tom::
 	.incbin "sound/direct_sound_samples/unused_sc55_tom.bin"
-
-
-	.align 2
-Cry_Glaceon::
-    .incbin "sound/direct_sound_samples/cry_glaceon.bin"
+	
     
     .align 2
 Cry_Bulbasaur::
