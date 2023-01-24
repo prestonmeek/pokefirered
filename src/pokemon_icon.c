@@ -473,8 +473,8 @@ const u8 *const gMonIconTable[] = {
 
 const u8 gMonIconPaletteIndices[] = {
     [SPECIES_NONE]        = 0,
-	[SPECIES_GLACEON]     = 2,
-	[SPECIES_LEAFEON]     = 2,
+	[SPECIES_GLACEON]     = 0,
+	[SPECIES_LEAFEON]     = 1,
 	[SPECIES_BULBASAUR]   = 1,
     [SPECIES_IVYSAUR]     = 1,
     [SPECIES_VENUSAUR]    = 1,
