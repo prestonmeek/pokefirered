@@ -1101,7 +1101,7 @@ Cry_Umbreon::
 
 	.align 2
 Cry_Sylveon::
-	.incbin "sound/direct_sound_samples/cry_espeon.bin"
+	.incbin "sound/direct_sound_samples/cry_sylveon.bin"
 
 	.align 2
 Cry_Murkrow::
