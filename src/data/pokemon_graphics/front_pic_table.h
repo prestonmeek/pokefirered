@@ -2,6 +2,7 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
 {
     SPECIES_SPRITE(NONE, gMonFrontPic_CircledQuestionMark),
 	SPECIES_SPRITE(GLACEON, gMonFrontPic_Glaceon),
+	SPECIES_SPRITE(LEAFEON, gMonFrontPic_Leafeon),
 	SPECIES_SPRITE(BULBASAUR, gMonFrontPic_Bulbasaur),
     SPECIES_SPRITE(IVYSAUR, gMonFrontPic_Ivysaur),
     SPECIES_SPRITE(VENUSAUR, gMonFrontPic_Venusaur),

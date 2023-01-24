@@ -308,6 +308,10 @@ Cry_Glaceon::
     .incbin "sound/direct_sound_samples/cry_glaceon.bin"
     
     .align 2
+Cry_Leafeon::
+    .incbin "sound/direct_sound_samples/cry_leafeon.bin"
+    
+    .align 2
 Cry_Bulbasaur::
 	.incbin "sound/direct_sound_samples/cry_bulbasaur.bin"
 

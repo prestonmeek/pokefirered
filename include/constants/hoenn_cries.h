@@ -140,6 +140,7 @@ enum
     CRY_CHIMECHO = 387,
     CRY_SYLVEON = 388,
     CRY_GLACEON = 389,
+	CRY_LEAFEON = 390,
 };
 
 #endif

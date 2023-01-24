@@ -2,6 +2,7 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
 {
     SPECIES_PAL(NONE, gMonPalette_CircledQuestionMark),
 	SPECIES_PAL(GLACEON, gMonPalette_Glaceon),
+	SPECIES_PAL(LEAFEON, gMonPalette_Leafeon),
 	SPECIES_PAL(BULBASAUR, gMonPalette_Bulbasaur),
     SPECIES_PAL(IVYSAUR, gMonPalette_Ivysaur),
     SPECIES_PAL(VENUSAUR, gMonPalette_Venusaur),

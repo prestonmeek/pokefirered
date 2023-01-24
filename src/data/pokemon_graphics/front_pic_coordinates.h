@@ -10,6 +10,11 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x67,
         .y_offset = 0x08,
     },
+	[SPECIES_LEAFEON] =
+    {
+        .size = 0x67,
+        .y_offset = 0x08,
+    },
 	[SPECIES_BULBASAUR] =
     {
         .size = 0x55,

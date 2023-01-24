@@ -97,6 +97,7 @@ static const struct CombinedMove sCombinedMoves[2] =
 static const u16 sSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoenn Dex Index (Summary No. for Hoenn Dex)
 {
 	SPECIES_TO_HOENN(GLACEON),
+	SPECIES_TO_HOENN(LEAFEON),
 	SPECIES_TO_HOENN(BULBASAUR),
     SPECIES_TO_HOENN(IVYSAUR),
     SPECIES_TO_HOENN(VENUSAUR),
@@ -514,6 +515,7 @@ static const u16 sSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoe
 static const u16 sSpeciesToNationalPokedexNum[] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
 {
 	SPECIES_TO_NATIONAL(GLACEON),
+	SPECIES_TO_NATIONAL(LEAFEON),
 	SPECIES_TO_NATIONAL(BULBASAUR),
     SPECIES_TO_NATIONAL(IVYSAUR),
     SPECIES_TO_NATIONAL(VENUSAUR),
@@ -1133,6 +1135,7 @@ static const u16 sHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using 
     HOENN_TO_NATIONAL(JIRACHI),
     HOENN_TO_NATIONAL(DEOXYS),
 	HOENN_TO_NATIONAL(GLACEON),
+	HOENN_TO_NATIONAL(LEAFEON),
 	HOENN_TO_NATIONAL(BULBASAUR), // Pokémon from here onwards are UNSEEN in the HoennDex.
     HOENN_TO_NATIONAL(IVYSAUR),
     HOENN_TO_NATIONAL(VENUSAUR),

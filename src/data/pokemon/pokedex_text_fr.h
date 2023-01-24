@@ -12,6 +12,13 @@ const u8 gGlaceonPokedexText[] = _(
 
 const u8 gGlaceonPokedexTextUnused[] = _("");
 
+const u8 gLeafeonPokedexText[] = _(
+    "This is a newly discovered POKéMON. It is\n"
+    "currently under investigation. No detailed\n"
+    "information is available at this time.");
+
+const u8 gLeafeonPokedexTextUnused[] = _("");
+
 const u8 gBulbasaurPokedexText[] = _(
     "There is a plant seed on its back right\n"
     "from the day this POKéMON is born.\n"
